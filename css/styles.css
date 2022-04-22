@@ -20,6 +20,8 @@
     --white-color: #FFFFFF;
     --icons-color: #AFB1B8;
     --footer-icons-font-color:rgba(255, 255, 255, 0.1);
+
+    --main-animation: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- */
@@ -157,35 +159,9 @@ h1, h2, h3, p, section, ul {
     margin-right: 50px;
 }
 
-.nav-list-item {
-    /* position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
-    
+.nav-list-item {   
     height: 80px;
 }
-
-/* .nav-list-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    
-    display: inline-block;
-    width: 100%;
-    height: 4px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
-
-    transform: translateY(+50%);
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-} */
-
-/* .nav-list-item:hover::after {
-    opacity: 1;
-} */
 
 .contacts-list {
     display: flex;
@@ -210,7 +186,7 @@ h1, h2, h3, p, section, ul {
     color: var(--accent-color);
     fill: var(--accent-color);
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--main-animation);
 }
 
 .icon-envelope,
@@ -218,13 +194,6 @@ h1, h2, h3, p, section, ul {
     margin-right: 10px;
     vertical-align: middle;
 }
-
-/* .nav-link {
-    padding-top: 8px;
-    padding-bottom: 8px;
-
-    color: var(--secondary-text-color);
-} */
 
 .nav-link {
     position: relative;
@@ -236,6 +205,7 @@ h1, h2, h3, p, section, ul {
     height: 100%;
 
     color: var(--secondary-text-color);
+    transition: color 250ms var(--main-animation);
 }
 
 .nav-link::after {
@@ -251,26 +221,25 @@ h1, h2, h3, p, section, ul {
     border-radius: 2px;
 
     transform: translateY(+50%);
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms var(--main-animation);
     opacity: 0;
 }
 
 .nav-link:hover,
-.nav-link:focus,
-.nav-link:hover::after {
+.nav-link:focus {
     color: var(--accent-color);
-    opacity: 1;
-
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .nav-link:hover::after {
+.nav-link:hover::after {
     opacity: 1;
-} */
+}
 
 .current {
     color: var(--accent-color);
+}
+
+.current.nav-link::after {
+    opacity: 1;
 }
 
 /* герой */
@@ -336,7 +305,7 @@ h1, h2, h3, p, section, ul {
 .hero-button:focus {
     color: var(--secondary-text-color);
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--main-animation);
 }
 
 /* преимущества компании */
@@ -508,8 +477,10 @@ h1, h2, h3, p, section, ul {
     width: 44px;
     height: 44px;
 
-    color: var(--icons-color);
     fill: var(--icons-color);
+
+    transition: background-color 250ms var(--main-animation),
+    fill 250ms var(--main-animation);
 
     border-radius: 50%;
 }
@@ -517,11 +488,9 @@ h1, h2, h3, p, section, ul {
 .social-media-link:hover,
 .social-media-link:focus {
     background-color: var(--accent-color);
-    color: var(--white-color);
     fill: var(--white-color);
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
 .social-media-icon {
@@ -557,8 +526,9 @@ h1, h2, h3, p, section, ul {
     width: 170px;
     height: 92px;
 
-    color: var(--icons-color);
     fill: var(--icons-color);
+    transition: fill 250ms var(--main-animation),
+    color 250ms var(--main-animation);
 
     border: 1px solid var(--icons-color);
     border-radius: 4px;
@@ -566,14 +536,10 @@ h1, h2, h3, p, section, ul {
 
 .client-link:hover,
 .client-link:focus {
-    color: var(--accent-color);
     fill: var(--accent-color);
 
     border: 1px solid var(--accent-color);
     border-radius: 4px;
-
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
 }
 
 /* подвал сайта */
@@ -616,13 +582,12 @@ h1, h2, h3, p, section, ul {
 
 .join-us .social-media-link {
     background-color: var(--footer-icons-font-color);
+    transition: background-color 250ms var(--main-animation);
 }
 
 .join-us .social-media-link:hover,
 .join-us .social-media-link:focus {
     background-color: var(--accent-color);
-
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-container .logo {
@@ -648,13 +613,12 @@ h1, h2, h3, p, section, ul {
 
 .contacts-foter {
     color: var(--service-text-color);
+    transition: color 250ms var(--main-animation);
 }
 
 .contacts-foter:hover,
 .contacts-foter:focus {
     color: var(--accent-color);
-
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- */
@@ -694,9 +658,11 @@ h1, h2, h3, p, section, ul {
     border-radius: 4px;
     border: none;
     cursor: pointer;
+
+    transition: background-color 250ms var(--main-animation),
+    color 250ms var(--main-animation);
 }
 
-/* перечень выполненных проектов */
 .filter-button:hover,
 .filter-button:focus {
     background-color: var(--accent-color);
@@ -705,11 +671,9 @@ h1, h2, h3, p, section, ul {
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
     0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* перечень выполненных проектов */
 .portfolio-list {
     display: flex;
     flex-wrap: wrap;
@@ -756,6 +720,9 @@ h1, h2, h3, p, section, ul {
     position: absolute;
     top: 0;
     left: 0;
+
+    padding: 24px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -763,21 +730,17 @@ h1, h2, h3, p, section, ul {
     height: 274px;
 
     background-color: var(--accent-color);
-
-    opacity: 0;
-
-    transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    padding: 24px;
-
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
     color: #FFFFFF;
+
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 250ms var(--main-animation);
 }
 
-.overlay > p {
+.overlay-text {
     display: inline-block;
     width: 322px;
     height: 168px;
@@ -809,4 +772,51 @@ h1, h2, h3, p, section, ul {
     color: var(--primary-text-color);
     font-size: 16px;
     line-height: 1.9;
+}
+
+/* --- */
+/* css for modal window */
+/* --- */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* скрывает модальное окно с возможностью кликать сквозь него */
+.backdrop.is-hiden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 528px;
+    height: 581px;
+    background-color: var(--white-color);
+}
+
+.modal-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    padding: 6px;
+
+    width: 30px;
+    height: 30px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
 }
