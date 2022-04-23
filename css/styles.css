@@ -299,13 +299,12 @@ h1, h2, h3, p, section, ul {
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    transition: color 250ms var(--main-animation);
 }
 
 .hero-button:hover,
 .hero-button:focus {
     color: var(--secondary-text-color);
-
-    transition: color 250ms var(--main-animation);
 }
 
 /* преимущества компании */
@@ -787,23 +786,34 @@ h1, h2, h3, p, section, ul {
     height: 100%;
 
     background: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 250ms var(--main-animation),
+    visibility 250ms var(--main-animation);
 }
 
 /* скрывает модальное окно с возможностью кликать сквозь него */
-.backdrop.is-hiden {
+.backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
 }
 
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
 
     width: 528px;
     height: 581px;
+
     background-color: var(--white-color);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms var(--main-animation);
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.8);
 }
 
 .modal-button {
@@ -811,12 +821,20 @@ h1, h2, h3, p, section, ul {
     top: 8px;
     right: 8px;
 
-    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* padding: 6px; */
 
     width: 30px;
     height: 30px;
 
-    background: #FFFFFF;
+    fill: var(--secondary-text-color);
+    color: #212121;
+
+    /* background: #FFFFFF; */
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    cursor: pointer;
 }
