@@ -488,8 +488,6 @@ h1, h2, h3, p, section, ul {
 .social-media-link:focus {
     background-color: var(--accent-color);
     fill: var(--white-color);
-
-    
 }
 
 .social-media-icon {
@@ -722,11 +720,10 @@ h1, h2, h3, p, section, ul {
 
     padding: 24px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 370px;
     height: 274px;
+
+    display: flex;
+    align-items: center;
 
     background-color: var(--accent-color);
     font-size: 18px;
@@ -821,20 +818,25 @@ h1, h2, h3, p, section, ul {
     top: 8px;
     right: 8px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* padding: 6px; */
+    padding: 0;
 
     width: 30px;
     height: 30px;
 
-    fill: var(--secondary-text-color);
-    color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    /* background: #FFFFFF; */
+    background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
+    fill: currentColor;
+}
+
+.modal-button:hover {
+    border-color: var(--accent-color);
+    fill: var(--accent-color);
+    transition: border-color 250ms var(--main-animation),
+    fill 250ms var(--main-animation);
 }
