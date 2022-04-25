@@ -783,17 +783,19 @@ h1, h2, h3, p, section, ul {
     height: 100%;
 
     background: rgba(0, 0, 0, 0.2);
-    opacity: 1;
-    visibility: visible;
+
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
     transition: opacity 250ms var(--main-animation),
     visibility 250ms var(--main-animation);
 }
 
 /* скрывает модальное окно с возможностью кликать сквозь него */
 .backdrop.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
+    opacity: 1;
+    pointer-events: visible;
+    visibility: visible;
 }
 
 .modal {
